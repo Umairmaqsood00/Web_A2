@@ -631,4 +631,36 @@ select:focus {
   .nav-links.open {
     display: flex;
   }
+
+  .hero {
+    padding: 36px 20px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .details-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .details-sidebar {
+    position: static;
+    order: -1;
+  }
+
+  .registered-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .registered-item img {
+    width: 100%;
+    height: 160px;
+  }
+
+  .pagination {
+    gap: 8px;
+    font-size: 0.9rem;
+  }
 }
