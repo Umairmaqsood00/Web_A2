@@ -14,7 +14,7 @@ function RegisteredEventItem({ registration, onCancel, completed }) {
           <Link to={`/events/${event.id}`}>{event.name}</Link>
         </h3>
         <p className="muted">{formatDate(event.date, event.time)}</p>
-        <p className="muted">{event.venue} — {event.location}</p>
+        <p className="muted">{event.venue}, {event.location}</p>
         <p className="small muted">Registered on {new Date(registeredAt).toLocaleDateString()}</p>
       </div>
 
