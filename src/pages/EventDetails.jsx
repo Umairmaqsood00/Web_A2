@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { fetchEventDetails } from '../features/events/eventsSlice'
 import Loader from '../components/Loader'
 import ErrorMessage from '../components/ErrorMessage'
+import RegisterButton from '../components/RegisterButton'
 import { getEventImage, getVenue, getLocation, formatDate } from '../utils/eventHelpers'
 
 function EventDetails() {
@@ -74,6 +75,7 @@ function EventDetails() {
         </div>
 
         <aside className="card details-sidebar">
+          <RegisterButton event={event} />
           <div className="info-item">
             <span className="info-label">Date & Time</span>
             <span>{formatDate(start.localDate, start.localTime)}</span>
