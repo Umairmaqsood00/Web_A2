@@ -5,6 +5,7 @@ import EventCard from '../components/EventCard'
 import Loader from '../components/Loader'
 import ErrorMessage from '../components/ErrorMessage'
 import Pagination from '../components/Pagination'
+import SearchFilters from '../components/SearchFilters'
 
 function Events() {
   const { list, status, error, page, totalPages, totalResults, filters } = useSelector((state) => state.events)
@@ -22,6 +23,7 @@ function Events() {
   return (
     <div>
       <h1>Explore Events</h1>
+      <SearchFilters />
 
       {status === 'loading' && <Loader text="Loading events..." />}
 
