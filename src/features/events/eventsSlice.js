@@ -46,6 +46,7 @@ const initialState = {
   detailsError: null,
 
   categories: [],
+  categoriesError: null,
 }
 
 const eventsSlice = createSlice({
@@ -107,8 +108,14 @@ const eventsSlice = createSlice({
         state.detailsError = action.error.message
       })
 
+      .addCase(fetchCategories.pending, (state) => {
+        state.categoriesError = null
+      })
       .addCase(fetchCategories.fulfilled, (state, action) => {
         state.categories = action.payload
+      })
+      .addCase(fetchCategories.rejected, (state, action) => {
+        state.categoriesError = action.error.message
       })
   },
 })
