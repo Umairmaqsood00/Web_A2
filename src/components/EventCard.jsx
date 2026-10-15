@@ -11,7 +11,7 @@ function EventCard({ event }) {
         <span className="badge">{getCategory(event)}</span>
         <h3>{event.name}</h3>
         <p className="muted">{formatDate(event.dates?.start?.localDate, event.dates?.start?.localTime)}</p>
-        <p className="muted">{venue?.name}, {getLocation(venue)}</p>
+        <p className="muted">{venue ? `${venue.name}, ${getLocation(venue)}` : 'Venue TBA'}</p>
       </div>
     </Link>
   )

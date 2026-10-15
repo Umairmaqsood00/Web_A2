@@ -42,7 +42,7 @@ function RegisterButton({ event }) {
         </button>
       ) : isRegistered ? (
         <>
-          <button className="btn btn-block registered" disabled>✓ Registered</button>
+          <button className="btn btn-block registered" disabled>Registered</button>
           <button className="btn btn-danger btn-block" onClick={handleCancel}>Cancel Registration</button>
         </>
       ) : (

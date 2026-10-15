@@ -4,11 +4,11 @@ function Pagination({ page, totalPages, onChange }) {
   return (
     <div className="pagination">
       <button className="btn btn-outline" disabled={page === 0} onClick={() => onChange(page - 1)}>
-        ← Previous
+        Previous
       </button>
       <span>Page {page + 1} of {totalPages}</span>
       <button className="btn btn-outline" disabled={page >= totalPages - 1} onClick={() => onChange(page + 1)}>
-        Next →
+        Next
       </button>
     </div>
   )

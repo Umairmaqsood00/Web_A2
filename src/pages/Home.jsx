@@ -26,8 +26,8 @@ function Home() {
   return (
     <div>
       <section className="hero">
-        <h1>Find events you'll love</h1>
-        <p>Concerts, sports, theatre and more. Discover what's happening and save your spot.</p>
+        <h1>Welcome to EventHub</h1>
+        <p>Search concerts, sports, theatre and other events, and register for the ones you want to go to.</p>
         <div className="hero-actions">
           <Link to="/events" className="btn">Browse Events</Link>
           {!user && <Link to="/register" className="btn btn-light">Create Account</Link>}
@@ -50,7 +50,7 @@ function Home() {
       <section className="home-section">
         <div className="section-header">
           <h2>Upcoming Events</h2>
-          <Link to="/events">See all →</Link>
+          <Link to="/events">See all</Link>
         </div>
 
         {upcomingStatus === 'loading' && <Loader />}

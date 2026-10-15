@@ -1,83 +1,66 @@
-# EventHub: Event Management System
+# EventHub - Event Management System
 
-A React app for exploring events from the **Ticketmaster Discovery API**, registering for them and managing your registrations.
+Web Programming Assignment 2. It's a React app that shows events from the Ticketmaster Discovery API. You can sign up, log in, register for events and see the events you registered for.
 
-Built with **React**, **Redux Toolkit**, **React Router** and **Vite**.
+Made with React, Redux Toolkit, React Router and Vite.
 
 ## Features
 
-- **Authentication**: register, login and logout (frontend simulation, saved in Local Storage so you stay logged in after refresh)
-- **Explore events**: browse, search by keyword, filter by category, city and date range, sort, and paginate
-- **Upcoming events** and **categories** on the home page, plus a full Categories page
-- **Event details**: image, date & time, venue, location, category, status, price range, performers, seat map, ticket sale date and more
-- **Registration**: logged-in users can register for an event, duplicates are prevented, and registrations can be cancelled
-- **My Events**: see your registered events split into *Upcoming* and *Completed*
-- Protected routes, loading and error states, form validation and a responsive layout
+- Sign up, login and logout (no backend, users are saved in localStorage so you stay logged in after a refresh)
+- Events page with search, filters (category, city, date range), sorting and pagination
+- Home page with upcoming events and categories
+- Event details page with date, venue, price range, performers, seat map etc.
+- Register for an event (can't register twice) and cancel a registration
+- My Events page with Upcoming and Completed tabs, only for logged in users
+- 404 page, loading and error messages, form validation, works on mobile
 
-## Project Structure
+## How to run
 
-```
-src/
-  api/ticketmaster.js        # API requests
-  components/                # Reusable UI components
-  features/
-    auth/authSlice.js        # users + current user
-    events/eventsSlice.js    # event list, filters, details, categories
-    registrations/registrationsSlice.js
-  pages/                     # One component per route
-  store/store.js             # configureStore + Local Storage saving
-  utils/eventHelpers.js      # Helpers for formatting event data
+Clone the repo and install the packages:
+
+```bash
+git clone https://github.com/Umairmaqsood00/Web_A2.git
+cd Web_A2
+npm install
 ```
 
-## Routes
+You need a Ticketmaster API key. Make a free account at https://developer.ticketmaster.com/ and copy the Consumer Key. Then copy `.env.example` to `.env` and put your key in it:
 
-| Path | Page |
-| --- | --- |
-| `/` | Home |
-| `/events` | Event list with search and filters |
-| `/events/:id` | Event details |
-| `/categories` | Categories |
-| `/login`, `/register` | Authentication |
-| `/my-events` | My Events (login required) |
+```
+VITE_TM_API_KEY=your_key_here
+```
 
-## Setup
+`.env` is in `.gitignore` so the key doesn't get pushed.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Umairmaqsood00/Web_A2.git
-   cd Web_A2
-   ```
+Start the app:
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+```bash
+npm run dev
+```
 
-3. **Add your API key**
+and open http://localhost:5173
 
-   Get a free key (the *Consumer Key*) from https://developer.ticketmaster.com/ then copy `.env.example` to `.env`:
-   ```bash
-   cp .env.example .env
-   ```
-   and put your key in it:
-   ```
-   VITE_TM_API_KEY=your_key_here
-   ```
-   The `.env` file is ignored by Git, so your key is never committed.
+For a production build run `npm run build` (output goes to the `dist` folder) and `npm run preview` to test it.
 
-4. **Run the app**
-   ```bash
-   npm run dev
-   ```
-   Open http://localhost:5173
+## Pages
 
-5. **Production build**
-   ```bash
-   npm run build
-   npm run preview
-   ```
+- `/` - home
+- `/events` - all events with search and filters
+- `/events/:id` - event details
+- `/categories` - categories
+- `/login`, `/register`
+- `/my-events` - registered events (need to be logged in)
+
+## Folders
+
+- `src/api` - Ticketmaster API calls
+- `src/features` - Redux slices (auth, events, registrations)
+- `src/store` - Redux store, also saves data to localStorage
+- `src/pages` - one file for each page
+- `src/components` - smaller components used in the pages
+- `src/utils` - helper functions for event data
 
 ## Notes
 
-- Authentication is a frontend-only simulation. Users, the logged-in user and registrations are stored in the browser's Local Storage.
-- The free Ticketmaster key allows 5,000 requests per day and 2 requests per second.
+- Login is only a frontend simulation. Users, the logged in user and registrations are all kept in localStorage.
+- The free API key allows 5000 requests a day and 2 per second, so if you click around very fast you might see a "Too many requests" error.

@@ -32,7 +32,7 @@ function Categories() {
         {categories.map((c) => (
           <button key={c.id} className="card category-card" onClick={() => openCategory(c.id)}>
             <h3>{c.name}</h3>
-            <p className="muted">{c.genres.slice(0, 6).join(' · ')}</p>
+            <p className="muted">{c.genres.slice(0, 6).join(', ')}</p>
           </button>
         ))}
       </div>
