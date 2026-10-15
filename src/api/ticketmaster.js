@@ -56,7 +56,7 @@ export async function getCategories() {
   const classifications = data._embedded?.classifications || []
 
   return classifications
-    .filter((c) => c.segment)
+    .filter((c) => c.segment && c.segment.name !== 'Undefined')
     .map((c) => ({
       id: c.segment.id,
       name: c.segment.name,
