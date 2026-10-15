@@ -1,5 +1,5 @@
 export function getEventImage(event) {
-  if (!event.images || event.images.length === 0) return ''
+  if (!event.images || event.images.length === 0) return null
   const wide = event.images.filter((img) => img.ratio === '16_9')
   const list = wide.length > 0 ? wide : event.images
   return list.reduce((best, img) => (img.width > best.width ? img : best)).url
