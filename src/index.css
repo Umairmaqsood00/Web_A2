@@ -459,6 +459,20 @@ select:focus {
   top: 84px;
 }
 
+.register-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.btn.registered {
+  background: var(--success);
+  border-color: var(--success);
+  opacity: 1;
+}
+
 .info-item {
   display: flex;
   flex-direction: column;
