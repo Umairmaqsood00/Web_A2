@@ -486,6 +486,71 @@ select:focus {
   font-weight: 600;
 }
 
+.tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 16px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: none;
+  font-size: 0.95rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+  font-weight: 600;
+}
+
+.registered-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.registered-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+}
+
+.registered-item img {
+  width: 160px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--border);
+}
+
+.registered-info {
+  flex: 1;
+}
+
+.registered-info h3 {
+  margin: 6px 0;
+}
+
+.registered-info p {
+  margin: 2px 0;
+}
+
+.small {
+  font-size: 0.8rem;
+}
+
+.badge-done {
+  background: #f3f4f6;
+  color: var(--muted);
+}
+
 .loader {
   text-align: center;
   padding: 48px 0;
