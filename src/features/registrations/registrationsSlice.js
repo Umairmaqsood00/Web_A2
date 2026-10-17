@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { loadFromStorage } from '../../utils/storage'
 
 const initialState = {
-  items: JSON.parse(localStorage.getItem('registrations')) || [],
+  items: loadFromStorage('registrations', []),
 }
 
 const registrationsSlice = createSlice({

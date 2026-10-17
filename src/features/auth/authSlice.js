@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { loadFromStorage } from '../../utils/storage'
 
 const initialState = {
-  users: JSON.parse(localStorage.getItem('users')) || [],
-  currentUser: JSON.parse(localStorage.getItem('currentUser')) || null,
+  users: loadFromStorage('users', []),
+  currentUser: loadFromStorage('currentUser', null),
   error: null,
 }
 
