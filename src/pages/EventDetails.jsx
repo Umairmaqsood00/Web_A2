@@ -30,7 +30,7 @@ function EventDetails() {
 
   return (
     <div className="details">
-      <Link to="/events" className="back-link">← Back to events</Link>
+      <Link to="/events" className="back-link">Back to events</Link>
 
       <img className="details-image" src={getEventImage(event)} alt={event.name} />
 

@@ -26,7 +26,7 @@ export function formatDate(date, time) {
   const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
   const text = d.toLocaleDateString(undefined, options)
   if (!time) return text
-  return `${text} · ${d.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })}`
+  return `${text}, ${d.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' })}`
 }
 
 export function isPastEvent(date) {
