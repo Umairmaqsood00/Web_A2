@@ -1,99 +1,104 @@
 # EventHub - Event Management System
 
-Web Programming Assignment 2. It's a React app that shows events from the Ticketmaster Discovery API. You can sign up, log in, register for events and see the events you registered for.
+This is my Web Programming Assignment 2. EventHub is a website made with React where you can find events (like concerts and sports matches), see their details and register for the ones you like. The event data comes from the Ticketmaster API.
 
-## Technologies
+## What you can do
 
-- **React 19** for the UI
-- **Redux Toolkit** and **React Redux** for shared state (`configureStore`, `createSlice`, `createAsyncThunk`, `useSelector`, `useDispatch`). There are three slices: auth, events and registrations
-- **React Router 7** for the pages, with a protected route for My Events
-- **Ticketmaster Discovery API v2** for event data (`events.json`, `events/{id}.json`, `classifications.json`)
-- **Vite** for the dev server and build
-- **localStorage** to keep users, the logged in user and registrations after a refresh
+- Make an account, log in and log out
+- Stay logged in even after you refresh the page
+- See upcoming events and categories on the home page
+- Search for events and filter them by category, city and date
+- Open an event to see its date, time, venue, location and picture
+- Register for an event (you can't register for the same event twice)
+- Cancel your registration
+- See your events on the My Events page, split into Upcoming and Completed
 
-## Features
+## Technologies used
 
-- Sign up, login and logout (no backend, users are saved in localStorage so you stay logged in after a refresh)
-- Events page with search, filters (category, city, date range), sorting and pagination
-- Home page with upcoming events and categories
-- Event details page with date, venue, price range, performers, seat map etc.
-- Register for an event (can't register twice) and cancel a registration
-- My Events page with Upcoming and Completed tabs, only for logged in users
-- 404 page, loading and error messages, form validation, works on mobile
+- **React** - to build the pages
+- **Redux Toolkit** - to keep data like the logged in user and registered events
+- **React Router** - to move between pages
+- **Ticketmaster API** - to get the events
+- **Vite** - to run the project
 
-## How to run
+## How to run the project
 
-Clone the repo and install the packages:
+You need [Node.js](https://nodejs.org/) installed on your computer.
+
+**1. Download the project**
 
 ```bash
 git clone https://github.com/Umairmaqsood00/Web_A2.git
 cd Web_A2
+```
+
+**2. Install the packages**
+
+```bash
 npm install
 ```
 
-You need a Ticketmaster API key. Make a free account at https://developer.ticketmaster.com/ and copy the Consumer Key. Then copy `.env.example` to `.env` and put your key in it:
+**3. Get a free API key**
+
+Sign up at https://developer.ticketmaster.com/ and copy your **Consumer Key**.
+
+**4. Add the key**
+
+Make a file called `.env` in the project folder (you can copy `.env.example`) and put your key in it:
 
 ```
 VITE_TM_API_KEY=your_key_here
 ```
 
-`.env` is in `.gitignore` so the key doesn't get pushed.
-
-### Environment variables
-
-| Variable | Required | What it is |
-| --- | --- | --- |
-| `VITE_TM_API_KEY` | Yes | Your Ticketmaster Consumer Key. Vite only gives variables starting with `VITE_` to the app. If it's missing, the app shows an error message instead of events. |
-
-Restart `npm run dev` after changing `.env`.
-
-Start the app:
+**5. Start the project**
 
 ```bash
 npm run dev
 ```
 
-and open http://localhost:5173
+**6. Open it in your browser**
 
-For a production build run `npm run build` (output goes to the `dist` folder) and `npm run preview` to test it.
+Go to http://localhost:5173
+
+## Environment variable
+
+| Name | What to put in it |
+| --- | --- |
+| `VITE_TM_API_KEY` | Your Ticketmaster API key |
+
+The `.env` file is in `.gitignore`, so it is not uploaded to GitHub and the key stays private.
 
 ## Pages
 
-- `/` - home
-- `/events` - all events with search and filters
-- `/events/:id` - event details
-- `/categories` - categories
-- `/login`, `/register`
-- `/my-events` - registered events (need to be logged in)
+- Home - `/`
+- Events - `/events`
+- Event Details - `/events/:id`
+- Categories - `/categories`
+- Login - `/login` and Register - `/register`
+- My Events - `/my-events` (only when you are logged in)
 
 ## Folders
 
-- `src/api` - Ticketmaster API calls
-- `src/features` - Redux slices (auth, events, registrations)
-- `src/store` - Redux store, also saves data to localStorage
-- `src/pages` - one file for each page
-- `src/components` - smaller components used in the pages
-- `src/utils` - helper functions for event data and for reading/saving localStorage
-- `src/assets` - placeholder image for events without a picture
+- `src/pages` - the pages of the website
+- `src/components` - small parts used in the pages, like the navbar and event card
+- `src/features` - Redux slices for login, events and registrations
+- `src/store` - the Redux store
+- `src/api` - code that gets data from the Ticketmaster API
+- `src/utils` - small helper functions
 
-## Testing
+## What I tested
 
-I tested these flows by hand in the browser:
-
-- Register a new account (empty fields, bad email, short password and passwords that don't match all show errors)
-- Register with an email that already exists shows an error
-- Login with a wrong password shows an error, correct login works
-- Refresh the page and you are still logged in, logout works
-- Search by keyword, filter by category, city and dates, sort, reset filters and change pages
-- End date before start date shows an error
-- Open an event and check the date, venue, location, category and image
-- Register for an event, the button changes to Registered and you can't register again
-- Cancel a registration from the event page and from My Events
-- My Events shows Upcoming and Completed tabs and is only for logged in users (redirects to login)
-- Loading spinner while events load, "No events match your search" for empty results, and an error with a Try Again button when the API fails or the key is missing
-- Layout on desktop and on mobile width (menu button, cards stack in one column)
+- Sign up, login and logout
+- Refreshing the page keeps me logged in
+- Search and filters
+- Event details page
+- Registering for an event, and that I can't register twice
+- Cancelling a registration
+- My Events page (Upcoming and Completed)
+- Loading, "no events found" and error messages
+- How it looks on a phone and on a laptop
 
 ## Notes
 
-- Login is only a frontend simulation. Users, the logged in user and registrations are all kept in localStorage.
-- The free API key allows 5000 requests a day and 2 per second, so if you click around very fast you might see a "Too many requests" error.
+- There is no real backend. Users and registrations are saved in the browser (localStorage).
+- The free API key has a limit, so if you click too fast you may see a "Too many requests" message. Just wait a second and try again.
