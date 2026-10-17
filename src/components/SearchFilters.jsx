@@ -40,20 +40,21 @@ function SearchFilters() {
       <input
         className="search-input"
         name="keyword"
+        aria-label="Search events"
         placeholder="Search events, artists, teams..."
         value={form.keyword}
         onChange={handleChange}
       />
 
       <div className="filter-row">
-        <select name="segmentId" value={form.segmentId} onChange={handleChange}>
+        <select name="segmentId" aria-label="Category" value={form.segmentId} onChange={handleChange}>
           <option value="">All categories</option>
           {categories.map((c) => (
             <option key={c.id} value={c.id}>{c.name}</option>
           ))}
         </select>
 
-        <input name="city" placeholder="City" value={form.city} onChange={handleChange} />
+        <input name="city" aria-label="City" placeholder="City" value={form.city} onChange={handleChange} />
 
         <label className="date-field">
           From
@@ -65,7 +66,7 @@ function SearchFilters() {
           <input type="date" name="endDate" value={form.endDate} onChange={handleChange} />
         </label>
 
-        <select name="sort" value={form.sort} onChange={handleChange}>
+        <select name="sort" aria-label="Sort by" value={form.sort} onChange={handleChange}>
           <option value="date,asc">Date (soonest)</option>
           <option value="name,asc">Name (A to Z)</option>
           <option value="relevance,desc">Relevance</option>

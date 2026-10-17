@@ -20,7 +20,12 @@ function Navbar() {
       <div className="container navbar-inner">
         <Link to="/" className="logo">EventHub</Link>
 
-        <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
+        <button
+          className="menu-btn"
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           ☰
         </button>
 
