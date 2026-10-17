@@ -6,6 +6,7 @@ import Loader from '../components/Loader'
 import ErrorMessage from '../components/ErrorMessage'
 import RegisterButton from '../components/RegisterButton'
 import { getEventImage, getVenue, getLocation, formatDate } from '../utils/eventHelpers'
+import noImage from '../assets/no-image.svg'
 
 function EventDetails() {
   const { id } = useParams()
@@ -32,7 +33,7 @@ function EventDetails() {
     <div className="details">
       <Link to="/events" className="back-link">Back to events</Link>
 
-      <img className="details-image" src={getEventImage(event)} alt={event.name} />
+      <img className="details-image" src={getEventImage(event) || noImage} alt={event.name} />
 
       <div className="details-layout">
         <div className="details-main">

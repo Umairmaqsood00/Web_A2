@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import { getEventImage, getVenue, getLocation, getCategory, formatDate } from '../utils/eventHelpers'
+import noImage from '../assets/no-image.svg'
 
 function EventCard({ event }) {
   const venue = getVenue(event)
 
   return (
     <Link to={`/events/${event.id}`} className="card event-card">
-      <img src={getEventImage(event)} alt={event.name} />
+      <img src={getEventImage(event) || noImage} alt={event.name} />
       <div className="event-card-body">
         <span className="badge">{getCategory(event)}</span>
         <h3>{event.name}</h3>

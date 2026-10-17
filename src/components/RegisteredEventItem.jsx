@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import { formatDate } from '../utils/eventHelpers'
+import noImage from '../assets/no-image.svg'
 
 function RegisteredEventItem({ registration, onCancel, completed }) {
   const { event, registeredAt } = registration
 
   return (
     <div className="card registered-item">
-      <img src={event.image} alt={event.name} />
+      <img src={event.image || noImage} alt={event.name} />
 
       <div className="registered-info">
         <span className="badge">{event.category}</span>
