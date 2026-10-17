@@ -1,4 +1,4 @@
-# EventHub – Event Management System
+# EventHub: Event Management System
 
 A React app for exploring events from the **Ticketmaster Discovery API**, registering for them and managing your registrations.
 
@@ -6,12 +6,12 @@ Built with **React**, **Redux Toolkit**, **React Router** and **Vite**.
 
 ## Features
 
-- **Authentication** – register, login and logout (frontend simulation, saved in Local Storage so you stay logged in after refresh)
-- **Explore events** – browse, search by keyword, filter by category, city and date range, sort, and paginate
+- **Authentication**: register, login and logout (frontend simulation, saved in Local Storage so you stay logged in after refresh)
+- **Explore events**: browse, search by keyword, filter by category, city and date range, sort, and paginate
 - **Upcoming events** and **categories** on the home page, plus a full Categories page
-- **Event details** – image, date & time, venue, location, category, status, price range, performers, seat map, ticket sale date and more
-- **Registration** – logged-in users can register for an event, duplicates are prevented, and registrations can be cancelled
-- **My Events** – see your registered events split into *Upcoming* and *Completed*
+- **Event details**: image, date & time, venue, location, category, status, price range, performers, seat map, ticket sale date and more
+- **Registration**: logged-in users can register for an event, duplicates are prevented, and registrations can be cancelled
+- **My Events**: see your registered events split into *Upcoming* and *Completed*
 - Protected routes, loading and error states, form validation and a responsive layout
 
 ## Project Structure

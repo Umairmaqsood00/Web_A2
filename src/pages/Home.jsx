@@ -27,7 +27,7 @@ function Home() {
     <div>
       <section className="hero">
         <h1>Find events you'll love</h1>
-        <p>Concerts, sports, theatre and more — discover what's happening and save your spot.</p>
+        <p>Concerts, sports, theatre and more. Discover what's happening and save your spot.</p>
         <div className="hero-actions">
           <Link to="/events" className="btn">Browse Events</Link>
           {!user && <Link to="/register" className="btn btn-light">Create Account</Link>}

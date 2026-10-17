@@ -95,7 +95,7 @@ function EventDetails() {
           {price && (
             <div className="info-item">
               <span className="info-label">Price Range</span>
-              <span>{price.min} – {price.max} {price.currency}</span>
+              <span>{price.min} to {price.max} {price.currency}</span>
             </div>
           )}
 

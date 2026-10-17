@@ -67,7 +67,7 @@ function SearchFilters() {
 
         <select name="sort" value={form.sort} onChange={handleChange}>
           <option value="date,asc">Date (soonest)</option>
-          <option value="name,asc">Name (A–Z)</option>
+          <option value="name,asc">Name (A to Z)</option>
           <option value="relevance,desc">Relevance</option>
         </select>
       </div>
