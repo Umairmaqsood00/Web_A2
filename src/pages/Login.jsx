@@ -30,6 +30,7 @@ function Login() {
     e.preventDefault()
     const newErrors = {}
     if (!form.email) newErrors.email = 'Email is required.'
+    else if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) newErrors.email = 'Enter a valid email address.'
     if (!form.password) newErrors.password = 'Password is required.'
     setErrors(newErrors)
 
@@ -48,12 +49,12 @@ function Login() {
 
         {error && <p className="alert alert-error">{error}</p>}
 
-        <label>Email</label>
-        <input name="email" type="email" value={form.email} onChange={handleChange} />
+        <label htmlFor="email">Email</label>
+        <input id="email" name="email" type="email" autoComplete="email" value={form.email} onChange={handleChange} />
         {errors.email && <span className="field-error">{errors.email}</span>}
 
-        <label>Password</label>
-        <input name="password" type="password" value={form.password} onChange={handleChange} />
+        <label htmlFor="password">Password</label>
+        <input id="password" name="password" type="password" autoComplete="current-password" value={form.password} onChange={handleChange} />
         {errors.password && <span className="field-error">{errors.password}</span>}
 
         <button type="submit" className="btn btn-block">Login</button>

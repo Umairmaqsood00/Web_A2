@@ -53,20 +53,20 @@ function Register() {
 
         {error && <p className="alert alert-error">{error}</p>}
 
-        <label>Name</label>
-        <input name="name" value={form.name} onChange={handleChange} />
+        <label htmlFor="name">Name</label>
+        <input id="name" name="name" autoComplete="name" value={form.name} onChange={handleChange} />
         {errors.name && <span className="field-error">{errors.name}</span>}
 
-        <label>Email</label>
-        <input name="email" type="email" value={form.email} onChange={handleChange} />
+        <label htmlFor="email">Email</label>
+        <input id="email" name="email" type="email" autoComplete="email" value={form.email} onChange={handleChange} />
         {errors.email && <span className="field-error">{errors.email}</span>}
 
-        <label>Password</label>
-        <input name="password" type="password" value={form.password} onChange={handleChange} />
+        <label htmlFor="password">Password</label>
+        <input id="password" name="password" type="password" autoComplete="new-password" value={form.password} onChange={handleChange} />
         {errors.password && <span className="field-error">{errors.password}</span>}
 
-        <label>Confirm Password</label>
-        <input name="confirm" type="password" value={form.confirm} onChange={handleChange} />
+        <label htmlFor="confirm">Confirm Password</label>
+        <input id="confirm" name="confirm" type="password" autoComplete="new-password" value={form.confirm} onChange={handleChange} />
         {errors.confirm && <span className="field-error">{errors.confirm}</span>}
 
         <button type="submit" className="btn btn-block">Register</button>
